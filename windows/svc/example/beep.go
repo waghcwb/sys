@@ -10,6 +10,17 @@ import (
 	"syscall"
 )
 
+const (
+  simple      = 0xFFFFFFFF
+  asterisk    = 0x00000040
+  exclamation = 0x00000030
+  err         = 0x00000010
+  information = 0x00000040
+  question    = 0x00000020
+  warning     = 0x00000030
+  ok          = 0x00000000
+)
+
 // BUG(brainman): MessageBeep Windows api is broken on Windows 7,
 // so this example does not beep when runs as service on Windows 7.
 
@@ -18,5 +29,5 @@ var (
 )
 
 func beep() {
-	beepFunc.Call(0xffffffff)
+	beepFunc.Call(simple)
 }
